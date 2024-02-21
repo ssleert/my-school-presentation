@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+    <!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/a11y-light.min.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+
+    <style>
+:root {
+  --r-main-font: "Montserrat";
+  --r-heading-font: "Montserrat";
+  --r-main-color: #784498;
+  --r-heading-color: #784498;
+  --r-heading-font-weight: 300;
+  --r-heading-text-transform: none;
+}
+    </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+          <h3>handcrafted js framework</h3>
+        </section>
+
+        <section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+          </section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - html in javascript
+          </section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - html in javascript
+              - reactive programming
+          </section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - html in javascript
+              - reactive programming
+              - small bundle size
+          </section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - html in javascript
+              - reactive programming
+              - small bundle size
+              - high performance
+          </section>
+        <section data-auto-animate>
+            <ul data-auto-animate>
+              <li data-auto-animate>html in javascript</li>
+            </ul>
+        </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <ul data-auto-animate>
+              <li data-auto-animate>html in javascript</li>
+            </ul>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers><script type="text/template">
+                  let count = 0
+                  const increaseCount = () => (count++, renderApp()),
+                        decreaseCount = () => (count--, renderApp()),
+                        renderApp = () => {
+                          document.body.innerHTML = App()
+                        }
+
+                  const App = () => {
+                    return `<div>
+                      ❤️ ${count}
+                      <button onclick="increaseCount()">👍</button>
+                      <button onclick="decreaseCount()">👎</button>
+                    </div>`
+                  }; renderApp()
+            </script></code></pre>
+          </section>
+          <section data-auto-animate>
+            <ul data-auto-animate>
+              <li data-auto-animate>html in javascript</li>
+            </ul>
+            <pre data-id="code-animation"><code class="hljs jsx" data-trim data-line-numbers="5,9-13"><script type="text/template">
+                  let count = 0
+                  const increaseCount = () => (count++, renderApp()),
+                        decreaseCount = () => (count--, renderApp()),
+                        renderApp = () => {
+                          document.body.replaceChildren(<App />)
+                        }
+
+                  const App = () => {
+                    return <div>
+                      ❤️ {count}
+                      <button onClick={increaseCount}>👍</button>
+                      <button onClick={decreaseCount}>👎</button>
+                    </div>
+                  }; renderApp()
+            </script></code></pre>
+            <h3>now with jsx</h3>
+          </section>
+
+          <section data-auto-animate>
+            <h3>now with jsx</h3>
+          </section>
+
+          <section data-auto-animate>
+            <h3>now with jsx</h3>
+            <h3>or javascript xml</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>now with jsx</h3>
+            <h3>or javascript xml</h3>
+            <p>jsx helps code editors find errors in html code</p>
+          </section>
+          <section>
+            <p>and also improves performance by eliminating the html parsing step</p>
+          </section>
+        </section>
+
+        <section data-markdown data-auto-animate>
+            ### what we want?
+            - ~~html in javascript~~
+            - reactive programming
+            - small bundle size
+            - high performance
+        </section>
+
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <ul data-auto-animate style="padding-bottom: 20px">
+              <li data-auto-animate>reactive programming</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul data-auto-animate style="padding-bottom: 20px">
+              <li data-auto-animate>reactive programming</li>
+            </ul>
+            <video data-autoplay loop height="350px" src="dist/page_update_shit.webm"></video>
+          </section>
+          <section data-auto-animate>
+            <ul data-auto-animate style="padding-bottom: 20px">
+              <li data-auto-animate>reactive programming</li>
+            </ul>
+            <video data-autoplay loop height="350px" src="dist/page_update_shit.webm"></video>
+            <p>why it update whole body on every click?</p>
+          </section>
+
+          <section data-auto-animate>
+            <p>why it update whole body on every click?</p>
+          </section>
+          <section data-auto-animate>
+            <p>why it update whole body on every click?</p>
+            <h3>if only count changes</h3>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h3>but there is a solution</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>fine-grained reactivity</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>fine-grained reactivity</h3>
+            <pre data-id="code-animation"><code class="hljs jsx" data-trim data-line-numbers><script type="text/template">
+                  let count = 0
+                  const increaseCount = () => (count++, renderApp()),
+                        decreaseCount = () => (count--, renderApp()),
+                        renderApp = () => {
+                          document.body.replaceChildren(<App />)
+                        }
+
+                  const App = () => {
+                    return <div>
+                      ❤️ {count}
+                      <button onClick={increaseCount}>👍</button>
+                      <button onClick={decreaseCount}>👎</button>
+                    </div>
+                  }; renderApp()
+            </script></code></pre>
+          </section>
+          <section data-auto-animate>
+            <h3>fine-grained reactivity</h3>
+            <pre data-id="code-animation"><code class="hljs jsx" data-trim data-line-numbers><script type="text/template">
+                  import { reactive } from "valeri/reactive"
+
+                  const count = reactive(0)
+                  const increaseCount = () => count.val++,
+                        decreaseCount = () => count.val--
+                   
+                  const App = () => {
+                    return <div>
+                      ❤️ {count}
+                      <button onClick={increaseCount}>👍</button>
+                      <button onClick={decreaseCount}>👎</button>
+                    </div>
+                  }; document.body.append(<App/>)
+            </script></code></pre>
+          </section>
+
+          <section data-auto-animate>
+            <h3>fine-grained reactivity</h3>
+            <pre data-id="code-animation"><code class="hljs jsx" data-trim data-line-numbers="3-5,13"><script type="text/template">
+                  import { reactive } from "valeri/reactive"
+
+                  const count = reactive(0)
+                  const increaseCount = () => count.val++,
+                        decreaseCount = () => count.val--
+                   
+                  const App = () => {
+                    return <div>
+                      ❤️ {count}
+                      <button onClick={increaseCount}>👍</button>
+                      <button onClick={decreaseCount}>👎</button>
+                    </div>
+                  }; document.body.append(<App/>)
+            </script></code></pre>
+          </section>
+
+          <section data-auto-animate>
+            <h3>fine-grained reactivity</h3>
+            <pre data-id="code-animation"><code class="hljs jsx" data-trim data-line-numbers><script type="text/template">
+                  import { reactive } from "valeri/reactive"
+
+                  const App = () => {
+                    const count = reactive(0)
+
+                    return <div>
+                      ❤️ {count}
+                      <button onClick={() => count.val++}>👍</button>
+                      <button onClick={() => count.val--}>👎</button>
+                    </div>
+                  }; document.body.append(<App/>)
+            </script></code></pre>
+          </section>
+
+          <section>
+            <p>fine-grained reactivity reduces code size by times and improves code support because it localizes states to the function level</p>
+          </section>
+          <section>
+            <p>performance improvements are attached</p>
+            <video data-autoplay loop height="350px" src="dist/page_update_good.webm"></video>
+          </section>
+        </section>
+
+        <section data-markdown data-auto-animate>
+            ### what we want?
+            - ~~html in javascript~~
+            - ~~reactive programming~~
+            - small bundle size
+            - high performance
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <ul data-auto-animate>
+              <li data-auto-animate>small bundle size</li>
+            </ul>
+            <pre data-id="code-animation"><code data-trim><script type="text/template">
+$ wc -c ./build/index.js* 
+1814 ./build/index.js
+ 947 ./build/index.js.br
+1018 ./build/index.js.gz
+            </script></code></pre>
+          </section>
+          <section data-auto-animate>
+            <ul data-auto-animate>
+              <li data-auto-animate>small bundle size</li>
+            </ul>
+            <pre data-id="code-animation"><code data-trim><script type="text/template">
+$ wc -c ./build/index.js* 
+1814 ./build/index.js
+ 947 ./build/index.js.br
+1018 ./build/index.js.gz
+            </script></code></pre>
+            <p>size with bun and closure compiler</p>
+          </section>
+
+        </section>
+
+        <section data-markdown data-auto-animate>
+            ### what we want?
+            - ~~html in javascript~~
+            - ~~reactive programming~~
+            - ~~small bundle size~~
+            - high performance
+        </section>
+
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <ul data-auto-animate>
+              <li data-auto-animate>high performance</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul data-auto-animate>
+              <li data-auto-animate>high performance</li>
+            </ul>
+            <pre data-id="code-animation"><code class="hljs jsx" data-trim data-line-numbers><script type="text/template">
+import { reactive } from "valeri/reactive"
+import { renderEffect } from "valeri/render"
+
+const Page1 = () => {
+  const likes = reactive(0)
+  const list = reactive([])
+
+  return renderEffect(() => list.val = Array(10001),
+    list.map(() => <div>
+      {likes}
+      <button onClick={() => likes.val++}>+</button>
+      <button onClick={() => likes.val--}>-</button>
+    </div>))
+}
+            </script></code></pre>
+          </section>
+          <section data-auto-animate>
+            <ul data-auto-animate>
+              <li data-auto-animate>high performance</li>
+            </ul>
+            <pre data-id="code-animation"><code class="hljs jsx" data-trim data-line-numbers><script type="text/template">
+import { reactive } from "valeri/reactive"
+import { renderEffect } from "valeri/render"
+
+const Page1 = () => {
+  const likes = reactive(0)
+  const list = reactive([])
+
+  return renderEffect(() => list.val = Array(10001),
+    list.map(() => <div>
+      {likes}
+      <button onClick={() => likes.val++}>+</button>
+      <button onClick={() => likes.val--}>-</button>
+    </div>))
+}
+            </script></code></pre>
+            <p>update over 10k reactive values on click</p>
+          </section>
+          <section data-auto-animate>
+            <p>update over 10k reactive values on click</p>
+          </section>
+          <section data-auto-animate>
+            <p>update over 10k reactive values on click</p>
+            <p>without event loop blocking</p>
+          </section>
+          <section data-auto-animate>
+            <p>update over 10k reactive values on click</p>
+            <p>without event loop blocking</p>
+            <p>check an example</p>
+          </section>
+          <section data-auto-animate>
+            <p>check an example</p>
+            <video data-autoplay loop height="350px" src="dist/valeri_speed.webm"></video>
+          </section>
+          <section>
+            <p>and i can make it even faster</p>
+          </section>
+        </section>
+
+        <section data-auto-animate>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - ~~html in javascript~~
+              - ~~reactive programming~~
+              - ~~small bundle size~~
+              - ~~high performance~~
+          </section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - ~~html in javascript~~
+              - ~~reactive programming~~
+              - ~~small bundle size~~
+              - ~~high performance~~
+              - love
+          </section>
+        </section>
+
+				<section>
+          <section>
+            <h3>developed with love</h3>
+          </section>
+          
+          <section>
+            <img src="dist/valeri_logo.png">
+          </section>
+          
+          <section>
+            <h3>the world's lightest jsx-based reactive framework</h3>
+          </section>
+
+          <section>
+            <h3>not just lightweight</h3>
+          </section>
+          <section>
+            <h3>it's also</h3>
+          </section>
+          <section>
+            <h3>featureful</h3>
+          </section>
+          <section>
+            <h3>unopinionated</h3>
+          </section>
+          <section>
+            <h3>native</h3>
+          </section>
+          <section>
+            <h3>typed</h3>
+          </section>
+          <section>
+            <h3>secure</h3>
+          </section>
+          <section>
+            <h3>maintained</h3>
+          </section>
+          <section>
+            <h3>legacy compatible</h3>
+          </section>
+          <section>
+            <h3>pardon my populism plz</h3>
+          </section>
+          <section>
+            <h3>it's all</h3>
+          </section>
+          <section data-auto-animate>
+            <h1>valeri</h1>
+          </section>
+          <section data-auto-animate>
+            <h1>valeri</h1>
+            <h3>not just lightweight</h3>
+          </section>
+        </section>
+
+				<section>
+          <p>thank you for your attention</p>
+          <ul>
+            <li>
+              my github - <a href="https://github.com/ssleert">github.com/ssleert</a>
+            </li>
+            <li>
+              valeri - <a href="https://github.com/valeri-js/valeri">github.com/valeri-js/valeri</a>
+            </li>
+          </ul>
+        </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

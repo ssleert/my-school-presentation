@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+    <!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/a11y-light.min.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+
+    <style>
+:root {
+  --r-main-font: "Montserrat";
+  --r-heading-font: "Montserrat";
+  --r-main-color: #784498;
+  --r-heading-color: #784498;
+  --r-heading-font-weight: 300;
+  --r-heading-text-transform: none;
+}
+    </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+          <h3>handcrafted js framework</h3>
+        </section>
+
+        <section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+          </section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - html in javascript
+          </section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - html in javascript
+              - reactive programming
+          </section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - html in javascript
+              - reactive programming
+              - small bundle size
+          </section>
+          <section data-markdown data-auto-animate>
+              ### what we want?
+              - html in javascript
+              - reactive programming
+              - small bundle size
+              - high performance
+          </section>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+          </section>
+          <section data-auto-animate>
+              <pre data-id="code-animation">
+                <code data-trim class="hljs javascript">
+                <script type="text/template">
+                  let count = 0
+                  const increaseCount = () => count++
+                  const decreaseCount = () => count--
+
+                  const App = () => {
+                    return `
+                      <h3>my first website</h3>
+
+                      ❤️ ${count}
+                      <button onclick="increaseCount()">👍</button>
+                      <button onclick="decreaseCount()">👎</button>
+                    `
+                  }
+
+                  document.body.innerHTML = App()
+                </script>
+                </code>
+              </pre>
+          </section>
+          <section data-auto-animate>
+              <pre data-id="code-animation">
+                <code data-trim class="hljs jsx">
+                <script type="text/template">
+                  const App = () => {
+                    return <>
+                      <h3>my first website</h3>
+                      asd
+                      asd
+                      asd
+                      asd
+                      asd
+                    </>
+                  }
+
+                  document.body.append(...<App />)
+                </script>
+                </code>
+              </pre>
+          </section>
+        </section>
+
+				<section>
+          <section>
+            <img src="dist/valeri_logo.png">
+          </section>
+          
+          <section>
+            <h3>the world's lightest jsx-based reactive framework</h3>
+          </section>
+
+          <section data-auto-animate>
+            <h3>it's</h3>
+            <h3>lightweight</h3>
+          </section>
+        </section>
+
+				<section data-auto-animate>
+          <h3>it's</h3>
+          <h3>lightweight</h3>
+          <h3>performant</h3>
+        </section>
+
+				<section data-auto-animate>
+          <h3>it's</h3>
+          <h3>lightweight</h3>
+          <h3>performant</h3>
+          <h3>featureful</h3>
+        </section>
+				<section>
+          
+        </section>
+				<section>Slide 2</section>
+				<section>Slide 2</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
